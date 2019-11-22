@@ -38,7 +38,7 @@ namespace Aula145_ExceptionExercise.Entities
             }
             if (amount > WithdrawLimit)
             {
-                throw (new DomainException("The amount exceed withdraw limit"));
+                throw (new DomainException("The amount exceeds withdraw limit"));
             }
             Balance -= amount;
         }
