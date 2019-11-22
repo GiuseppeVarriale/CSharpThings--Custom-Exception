@@ -9,8 +9,7 @@ namespace Aula145_ExceptionExercise
     {
         static void Main(string[] args)
         {
-            try
-            {
+            
                 Console.WriteLine("Enter account data");
                 Console.Write("Number: ");
                 int number = int.Parse(Console.ReadLine());
@@ -24,12 +23,12 @@ namespace Aula145_ExceptionExercise
 
                 Console.WriteLine();
                 Console.Write("Enter amount for withdraw: ");
+            try
+            {
                 double amount = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-
                 account.Withdraw(amount);
-                Console.WriteLine($"New balance: {account.Balance.ToString("F2",CultureInfo.InvariantCulture)}");
-                   
-            }
+                Console.WriteLine($"New balance: {account.Balance.ToString("F2", CultureInfo.InvariantCulture)}");
+            }   
             catch (DomainException e)
             {
                 Console.WriteLine(e.Message);
@@ -37,10 +36,6 @@ namespace Aula145_ExceptionExercise
             catch (FormatException e)
             {
                 Console.WriteLine("Format error: " + e.Message);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Unexpected error: " + e.Message);
             }
 
         }

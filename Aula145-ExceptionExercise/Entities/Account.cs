@@ -26,19 +26,19 @@ namespace Aula145_ExceptionExercise.Entities
         {
             if (amount <= 0)
             {
-                throw (new DomainException("Amount must be a positive value"));
+                throw (new DomainException("Deposit error: Amount must be a positive value"));
             }
             Balance += (double)amount;
         }
         public void Withdraw(double amount)
         {
-            if (amount > Balance)
-            {
-                throw (new DomainException("Not enought balance"));
-            }
             if (amount > WithdrawLimit)
             {
-                throw (new DomainException("The amount exceeds withdraw limit"));
+                throw (new DomainException("Withdraw error: The amount exceeds withdraw limit"));
+            }
+            if (amount > Balance)
+            {
+                throw (new DomainException("Withdraw error: Not enought balance"));
             }
             Balance -= amount;
         }
